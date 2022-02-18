@@ -4,7 +4,9 @@ This is supposed to be palce where I'll put some Julia code in some random stuff
 
 ## Simlpe Pendulum 
 
-Solving the simple pendulum for some value of initial conditions. 
+- Solving the simple pendulum for some value of initial conditions. 
 
-Plotting the simple pendulum phase-space trajectories for a set of initial conditions.
+- Plotting the simple pendulum phase-space trajectories for a set of initial conditions.
+
+
 
