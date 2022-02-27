@@ -2,7 +2,7 @@ using CairoMakie
 
 function mandelbrot(x, y)
     z = c = x + y*im
-    for i in 1:30.0; abs(z) > 2 && return i; z = z^2 + c; end; 0
+    for i in 1:100.0; abs(z) > 2 && return i; z = z^2 + c; end; 0
 end
 
 #fig = Figure(resolution = (800, 600))
