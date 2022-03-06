@@ -43,13 +43,13 @@ ds = ContinuousDynamicalSystem(f,[1.,0.,1.,0.],[0.05,0.45,0.05])
 #tr = trajectory(ds, 10.0,u = [1.,1.,1.,0.] ,Δt = 0.1)
 #tr = trajectory(ds, 20.0,[rand(1)[1],0.,rand(1)[1],0.])
 tr = trajectory(ds, 50.0,[1.,0.,1.3,0.])
-tr1 = trajectory(ds, 50.0,[1.,0.,1.2,0.])
+tr1 = trajectory(ds, 50.0,[1.,0.,1.22,0.])
 tr2 = trajectory(ds, 50.0,[1.,0.,1.1,0.])
 
 
 # defining the figure
 begin 
-    plot(xlims=(-2,2),ylim=(-2,2),size = (600,600),axis=nothing
+    plot(xlims=(-1.5,1.5),ylim=(-1.5,1.5),size = (500,500),axis=nothing
     , legend=false,foreground_color_subplot=colorant"white")
     plot!(tr[:,1],tr[:,3],lw=2,color=2)
     plot!(tr1[:,1],tr1[:,3],lw=2,color=3)
@@ -61,20 +61,19 @@ end
 
 begin 
 
-    plot(xlims=(-2,2),ylim=(-2,2),size = (600,600),axis=nothing
+    plot(xlims=(-1.5,1.5),ylim=(-1.5,1.5),size = (500,500),axis=nothing
     , legend=false,foreground_color_subplot=colorant"white")
 
     anim = @animate for i in 1:25:length(tr[:,1])
-        plot!(tr[:,1],tr[:,3],lw=2,color=2)
-    plot!(tr1[:,1],tr1[:,3],lw=2,color=3)
-    plot!(tr2[:,1],tr2[:,3],lw=2,color=1)
+        plot!(tr[:,1][1:i],tr[:,3][1:i],lw=2,color=2)
+    plot!(tr1[:,1][1:i],tr1[:,3][1:i],lw=2,color=3)
+    plot!(tr2[:,1][1:i],tr2[:,3][1:i],lw=2,color=1)
     scatter!([m1[1]],[m1[2]],ms=10,color =1)
     scatter!([m2[1]],[m2[2]],ms=10,color =2)
     scatter!([m3[1]],[m3[2]],ms=10,color =3)
+    println(i)
     end
 
     gif(anim,"anim_mag_pend2.gif",fps=30)
 
 end
-
-5001/240
